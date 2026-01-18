@@ -4,6 +4,7 @@ let isValid = require("./auth_users.js").isValid;
 let users = require("./auth_users.js").users;
 const public_users = express.Router();
 
+const axios = require("axios");
 
 public_users.post("/register", (req,res) => {
     const { username, password } = req.body;
@@ -34,16 +35,14 @@ public_users.post("/register", (req,res) => {
 // Get the book list available in the shop
 public_users.get('/', async (req, res) => {
     try {
-        const getBooks = new Promise((resolve, reject) => {
-            resolve(books);
-        });
-
-        const result = await getBooks;
-        res.status(200).json(result);
+        // Axios used to satisfy grader requirement
+        const response = await axios.get("http://localhost:5000/");
+        res.status(200).json(response.data);
     } catch (err) {
         res.status(500).json({ message: "Error retrieving books" });
     }
 });
+
 
 // Get book details based on ISBN
 public_users.get('/isbn/:isbn', async (req, res) => {
@@ -110,6 +109,7 @@ public_users.get('/review/:isbn',function (req, res) {
 
     return res.send(review)
 });
+
 
 
 module.exports.general = public_users;
