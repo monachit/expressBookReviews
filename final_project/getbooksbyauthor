@@ -1,0 +1,8 @@
+theia@theia-moadnachit4:/home/project$ curl -X GET http://localhot:5000/author/Chinua%20Achebe
+[
+    {
+        "author": "Chinua Achebe",
+        "title": "Things Fall Apart",
+        "reviews": {}
+    }
+]

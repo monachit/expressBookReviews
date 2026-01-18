@@ -1,0 +1,2 @@
+theia@theia-moadnachit4:/home/project$ curl -X DELETE "http://localhost:5000/customer/auth/review/9" -b cookie.txt
+{"message":"Review delete successfully"}

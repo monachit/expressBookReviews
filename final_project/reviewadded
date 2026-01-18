@@ -1,0 +1,2 @@
+theia@theia-moadnachit4:/home/project$ curl -X PUT "http://localhost:5000/customer/auth/review/9?review=Great%20book" -b cookie.txt
+{"message":"Review added/updated successfully"}
